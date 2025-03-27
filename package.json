@@ -3,27 +3,32 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:run:typescript": "cypress run --config-file cypress.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
-    "stepDefinitions": "cypress/support/step_definitions/**/*.{js,ts}",
-    "commonStep": [
-      "cypress/support/step_definitions/common/*.{js,ts}"
-    ]
-  },
-  "devDependencies": {
+  "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "@cypress/webpack-preprocessor": "^6.0.3",
-    "@types/cypress": "^0.1.6",
-    "@types/node": "^22.13.13",
+    "@types/cypress": "^1.1.3",
     "cypress": "^14.2.1",
-    "esbuild": "^0.25.1",
-    "typescript": "^5.8.2"
-  }
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.2",
+    "esbuild": "^0.19.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7"
+  },
+"cypress-cucumber-preprocessor": {
+  "nonGlobalStepDefinitions": true,
+  "stepDefinitions": [
+    "cypress/e2e/tests/HomeTest/**/*.ts",
+    "cypress/e2e/tests/NavigationTest/**/*.ts"
+  ]
 }
+}
+  

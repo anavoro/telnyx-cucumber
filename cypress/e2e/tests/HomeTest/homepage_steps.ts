@@ -1,8 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import HomePageDesktop from '../../e2e/pages/HomePageDesktop'; 
-
-console.log("HomePageDesktop:", HomePageDesktop);
-Cypress.log({ name: "HomePageDesktop", message: JSON.stringify(HomePageDesktop) });
+import HomePageDesktop from "../../pages/HomePageDesktop"; 
 
 const homePageDesktop = new HomePageDesktop();
 

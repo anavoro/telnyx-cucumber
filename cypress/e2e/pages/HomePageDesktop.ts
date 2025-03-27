@@ -1,4 +1,4 @@
-import HomePage from "cypress/e2e/pages/HomePage";
+import HomePage from "./HomePage";
 
 class HomePageDesktop extends HomePage {
   constructor() {

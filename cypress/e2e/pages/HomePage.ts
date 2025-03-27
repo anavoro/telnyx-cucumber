@@ -1,82 +1,82 @@
-import { BasePage } from './BasePage';
+import PageBase from "./PageBase";
 
-export class HomePage extends BasePage {
-
-  private selectors = {
-    heroTitle: 'main section h1',
-    heroSignUpButton: 'main section a:contains("Sign up")',
-    headerSignUpButton: 'header a:not(#main-menu):contains("Sign up")',
-    navigationMenu: '#main-menu-content',
-    chatbotOpenIcon: 'div.c-bGYNvC > svg',
-    chatbotCloseButton: 'button[data-state="open"].c-cODSYQ',
-    chatbotTitle: 'h4:contains("Ask our AI assistant")',
-    chatbotWelcomeMessage: ':contains("I\'m Telnyx\'s AI assistant.")',
-    chatbotTextbox: '[placeholder="Type your question here"]'
-  };
+abstract class HomePage extends PageBase {
+  constructor() {
+    super();
+  }
 
   visitHomePage(options?: Partial<Cypress.VisitOptions>) {
     cy.visit("/", options);
     return this;
   }
 
+  abstract openNavigation(): void;
+  abstract closeNavigation(): void;
+
+  getPrimaryNavigationItems() {
+    return cy.get("#main-menu-content").find("a, button");
+  }
+
+  abstract getSecondaryNavigationLinkByText(text: string): any;
+
   getHeroTitle() {
-    return cy.get(this.selectors.heroTitle);
-  }
-
-  getSignUpButtonInHeroSection() {
-    return cy.get(this.selectors.heroSignUpButton);
-  }
-
-  getSignUpButtonInHeader() {
-    return cy.get(this.selectors.headerSignUpButton);
+    return cy.get("main section h1");
   }
 
   verifyHomepageLoaded() {
-    cy.get('h1').should('be.visible');
+    cy.get("h1").should("be.visible");
     return this;
   }
 
   verifyPerformance() {
-    cy.request('/').then((response) => {
-      cy.wrap(response.duration).should('be.lessThan', 5000);
+    cy.request("/").then((response) => {
+      cy.wrap(response.duration).should("be.lessThan", 5000);
     });
     return this;
   }
 
-
-  openChatbot() {
-    cy.get(this.selectors.chatbotOpenIcon).click();
-    return this;
-  }
-
-  closeChatbot() {
-    cy.get(this.selectors.chatbotCloseButton).click();
-    return this;
-  }
-
-  getChatbotTitle() {
-    return cy.contains(this.selectors.chatbotTitle);
-  }
-
-  getChatbotWelcomeMessage() {
-    return cy.contains(this.selectors.chatbotWelcomeMessage);
-  }
-
-  getChatbotTextbox() {
-    return cy.get(this.selectors.chatbotTextbox);
-  }
-
- 
-  getPrimaryNavigationItems() {
-    return cy.get(this.selectors.navigationMenu).find('a, button');
+  getFooter() {
+    return cy.get("footer");
   }
 
   goToContactUs() {
     this.getSignUpButtonInHeroSection()
       .parent()
-      .siblings('a')
-      .contains('Contact us')
+      .siblings("a")
+      .contains("Contact us")
       .click();
     return this;
   }
+
+  getSignUpButtonInHeader() {
+    return cy.get("header a:not(#main-menu)").contains("Sign up");
+  }
+
+  getSignUpButtonInHeroSection() {
+    return cy.get("main section a").contains("Sign up");
+  }
+
+  openChatbot() {
+    cy.get("div.c-bGYNvC > svg").click();
+    return this;
+  }
+
+  closeChatbot() {
+    cy.get('button[data-state="open"].c-cODSYQ').click();
+    return this;
+  }
+
+  getChatbotTitle() {
+    return cy.contains("h4", "Ask our AI assistant");
+  }
+
+  getChatbotWelcomeMessage() {
+    return cy.contains("I'm Telnyx's AI assistant.");
+  }
+
+  getChatbotTextbox() {
+    return cy.get(`[placeholder="Type your question here"]`);
+  }
 }
+
+export default HomePage;
