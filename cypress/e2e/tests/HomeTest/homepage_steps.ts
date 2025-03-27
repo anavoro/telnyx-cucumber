@@ -1,9 +1,11 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import HomePageDesktop from "../../pages/HomePageDesktop"; 
 import { ContactUsPage } from 'cypress/e2e/pages/ContactUsPage';
+import { SignUpPage } from 'cypress/e2e/pages/SignUpPage';
 
 const homePageDesktop = new HomePageDesktop();
 const contactUsPage = new ContactUsPage();
+const signUpPage = new SignUpPage();
 
 Given('I am on the Telnyx homepage', () => {
   homePageDesktop.visitHomePage({ timeout: 5 * 1000 });
@@ -44,9 +46,26 @@ Then('the page URL should be {string}', (url) => {
   cy.url().should('eq', url);
 });
 
-Then('the Contact Us form title should be visible and contain {string}', (title) => {
+Then('the Contact Us form title should be visible and contain Talk to an expert', () => {
   contactUsPage
     .getContactFormTitle()
     .should('be.visible')
-    .should('have.text', title);
+    .invoke('text')
+    .should('include', 'Talk to an expert');
 });
+
+When('I click on the "Sign up" button in the header', () => {
+  homePageDesktop.getSignUpButtonInHeader().click();
+});
+
+Then('I should be redirected to the Sign Up page', () => {
+  signUpPage.getPageUrl().should('eq', 'https://telnyx.com/sign-up');
+});
+
+Then('the Sign Up form title should be visible', () => {
+  signUpPage
+    .getSignUpFormTitle()
+    .should('be.visible')
+    .should('have.text', 'Create a Telnyx account');
+});
+

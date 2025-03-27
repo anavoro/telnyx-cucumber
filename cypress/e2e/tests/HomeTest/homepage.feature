@@ -19,3 +19,9 @@ Scenario: Verify the Contact Us form on the homepage
     When I go to the Contact Us page
     Then the page URL should be "https://telnyx.com/contact-us"
     And the Contact Us form title should be visible and contain Talk to an expert
+
+Scenario: Navigate to Sign Up page from header
+Given I am on the Telnyx homepage
+When I click on the "Sign up" button in the header
+Then I should be redirected to the Sign Up page
+And the Sign Up form title should be visible
