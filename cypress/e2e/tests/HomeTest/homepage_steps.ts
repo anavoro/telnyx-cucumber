@@ -69,3 +69,10 @@ Then('the Sign Up form title should be visible', () => {
     .should('have.text', 'Create a Telnyx account');
 });
 
+When('I click on the "Sign up" button in the main body', () => {
+  homePageDesktop.getSignUpButtonInHeroSection().click();
+});
+
+Then('I should be redirected to the Sign Up page from main body', () => {
+  signUpPage.getPageUrl().should('eq', 'https://telnyx.com/sign-up');
+});
