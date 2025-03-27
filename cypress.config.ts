@@ -6,7 +6,10 @@ import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild
 export default defineConfig({
   e2e: {
     baseUrl: 'https://telnyx.com',
-    specPattern: 'cypress/e2e/tests/HomeTest/**/*.feature',
+    specPattern: [
+      'cypress/e2e/tests/HomeTest/**/*.feature',
+      'cypress/e2e/tests/NavigationTest/**/*.feature',
+    ],
     supportFile: 'cypress/support/e2e.ts',
 
     async setupNodeEvents(on, config) {

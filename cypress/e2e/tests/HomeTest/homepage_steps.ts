@@ -76,3 +76,35 @@ When('I click on the "Sign up" button in the main body', () => {
 Then('I should be redirected to the Sign Up page from main body', () => {
   signUpPage.getPageUrl().should('eq', 'https://telnyx.com/sign-up');
 });
+
+When('I open the chatbot', () => {
+  homePageDesktop.openChatbot();
+});
+
+When('I close the chatbot', () => {
+  homePageDesktop.closeChatbot();
+});
+
+Then('the chatbot title should be visible', () => {
+  homePageDesktop.getChatbotTitle().should('be.visible');
+});
+
+Then('the chatbot welcome message should be visible', () => {
+  homePageDesktop.getChatbotWelcomeMessage().should('be.visible');
+});
+
+Then('the chatbot textbox should be visible', () => {
+  homePageDesktop.getChatbotTextbox().should('be.visible');
+});
+
+Then('the chatbot title should not exist', () => {
+  homePageDesktop.getChatbotTitle().should('not.exist');
+});
+
+Then('the chatbot welcome message should not exist', () => {
+  homePageDesktop.getChatbotWelcomeMessage().should('not.exist');
+});
+
+Then('the chatbot textbox should not exist', () => {
+  homePageDesktop.getChatbotTextbox().should('not.exist');
+});

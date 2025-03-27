@@ -31,3 +31,14 @@ Given I am on the Telnyx homepage
 When I click on the "Sign up" button in the main body
 Then I should be redirected to the Sign Up page from main body
 And the Sign Up form title should be visible
+
+Scenario: Verify Chatbot functionality
+Given I am on the Telnyx homepage
+When I open the chatbot
+Then the chatbot title should be visible
+And the chatbot welcome message should be visible
+And the chatbot textbox should be visible
+When I close the chatbot
+Then the chatbot title should not exist
+And the chatbot welcome message should not exist
+And the chatbot textbox should not exist
