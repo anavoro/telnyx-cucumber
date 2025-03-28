@@ -4,7 +4,7 @@
   So that I can access the website's main functionalities
 
   Scenario: Homepage loads with correct title and hero text
-    Given I am on the Telnyx homepage
+    Given I am on the Telnyx homepage with performance checks
     Then the page title should be correct
     And the hero title should be displayed correctly
     And the homepage performance should meet expectations 

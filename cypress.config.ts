@@ -9,6 +9,7 @@ export default defineConfig({
     specPattern: [
       'cypress/e2e/tests/HomeTest/**/*.feature',
       'cypress/e2e/tests/NavigationTest/**/*.feature',
+      'cypress/e2e/tests/HelpTest/**/*.feature'
     ],
     supportFile: 'cypress/support/e2e.ts',
 
@@ -21,10 +22,11 @@ export default defineConfig({
 
       config.env = {
         ...config.env,
-        nonGlobalStepDefinitions: true,
+        nonGlobalStepDefinitions: false,
         stepDefinitions: [
           'cypress/e2e/tests/HomeTest/**/*.ts',
-          'cypress/e2e/tests/NavigationTest/**/*.ts'
+          'cypress/e2e/tests/NavigationTest/**/*.ts',
+          'cypress/e2e/tests/HelpTest/**/*.ts'
         ]
       };
 

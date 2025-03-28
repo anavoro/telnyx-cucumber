@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import HomePageDesktop from "../../pages/HomePageDesktop"; 
+import HomePageDesktop from "../../pages/home.page.desktop"; 
 import { ContactUsPage } from 'cypress/e2e/pages/ContactUsPage';
 import { SignUpPage } from 'cypress/e2e/pages/SignUpPage';
 
@@ -7,7 +7,7 @@ const homePageDesktop = new HomePageDesktop();
 const contactUsPage = new ContactUsPage();
 const signUpPage = new SignUpPage();
 
-Given('I am on the Telnyx homepage', () => {
+Given('I am on the Telnyx homepage with performance checks', () => {
   homePageDesktop.visitHomePage({ timeout: 5 * 1000 });
 });
 

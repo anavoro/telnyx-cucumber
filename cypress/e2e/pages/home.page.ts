@@ -77,6 +77,23 @@ abstract class HomePage extends PageBase {
   getChatbotTextbox() {
     return cy.get(`[placeholder="Type your question here"]`);
   }
+
+  getHelpSectionTitle() {
+  return cy.contains("h3", "What can I help with?");
+  }
+  
+  getHelpSectionTextbox() {
+   return cy.get("#:r0:");
+  }
+  
+  closeHelpSection() {
+    cy.contains('Close chat').click();
+    return this;
+  }
+  getHelpSectionResponseWindow() {
+   return cy.get('section[class^="c-cHwKMe"]');
+  }
 }
 
 export default HomePage;
+
