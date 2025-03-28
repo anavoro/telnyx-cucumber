@@ -83,16 +83,38 @@ abstract class HomePage extends PageBase {
   }
   
   getHelpSectionTextbox() {
-   return cy.get("#:r0:");
+   return cy.get('[placeholder="Enter text here"]');
   }
   
   closeHelpSection() {
-    cy.contains('Close chat').click();
+    cy.contains('Close chat') 
+    .click({ force: true });
+
     return this;
   }
+
   getHelpSectionResponseWindow() {
    return cy.get('section[class^="c-cHwKMe"]');
   }
+  
+  getModelDropdown() {
+    cy.get('div.c-hksCXX')
+      .find('button.c-ewUecD.PJLV') 
+      .contains('Choose model') 
+      .first()
+      .click({ force: true });
+    return this;
+  }
+  
+  
+  getModelOption(modelName: string) {
+
+    cy.get('button[data-state="closed"]').click();
+    cy.get('div[role="menuitem"]').contains(modelName).click();
+    
+    return this;
+  }
+  
 }
 
 export default HomePage;
