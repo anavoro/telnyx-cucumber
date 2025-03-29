@@ -1,34 +1,30 @@
 {
   "name": "cucumber",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "cypress:open": "cypress open",
-    "cypress:run:typescript": "cypress run --config-file cypress.config.ts"
+    "test:ui": "cypress open"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["cucumber", "cypress", "automation", "pom", "integration"],
+  "author": "Anastasia - anavoro",
   "license": "ISC",
   "description": "",
-  "dependencies": {
+  "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "@types/cypress": "^1.1.3",
     "cypress": "^14.2.1",
     "typescript": "^5.2.2",
     "ts-node": "^10.9.2",
-    "esbuild": "^0.19.5"
-  },
-  "devDependencies": {
+    "esbuild": "^0.19.5",
+    "@types/cypress": "^1.1.3",
     "@types/node": "^20.8.7"
   },
-"cypress-cucumber-preprocessor": {
-  "nonGlobalStepDefinitions": true,
-  "stepDefinitions": [
+    "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": [
     "cypress/e2e/tests/HomeTest/**/*.ts",
     "cypress/e2e/tests/NavigationTest/**/*.ts"
   ]
-}
+} 
 }
   

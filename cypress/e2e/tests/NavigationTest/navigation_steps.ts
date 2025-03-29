@@ -1,4 +1,4 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
+import { Given, When, Then, } from '@badeball/cypress-cucumber-preprocessor';
 import HomePageDesktop from "../../pages/home.page.desktop"; 
 import HomePageMobile from '../../pages/HomePageMobile';
 import HomePage from '../../pages/home.page';
@@ -20,7 +20,6 @@ interface NavItem {
   }
   
   Given('I am on the homepage in {string} view', (viewType: 'Desktop' | 'Mobile') => {
-    cy.log(`Opening homepage in ${viewType} view`);
     const homePage = createHomePageObject(viewType);
     homePage.visitHomePage();
     Cypress.env('currentHomePage', homePage);

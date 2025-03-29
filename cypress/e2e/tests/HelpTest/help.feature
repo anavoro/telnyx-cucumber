@@ -23,3 +23,13 @@ Feature: "What can I help with?" section
     And I type a message in the help section
     Then I should receive a response
     And I should see the model name at the top of the response window
+
+Scenario: Verify that the help section returns correct answers for suggested topics
+    Given I am on the Telnyx homepage
+    When I view the following suggested topics:
+      | Suggested Topics                                  |
+      | Draft a 10DLC messaging campaign                  |
+      | What is an eSIM?                                  |
+      | What are some use cases of LLMs for real-time voice or messaging? |
+      | How can bi-directional streaming improve my call center? |
+    Then I should see the topic in the response window

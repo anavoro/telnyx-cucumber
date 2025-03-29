@@ -19,7 +19,7 @@
       "noEmit": true,
       "experimentalDecorators": true
     },
-    "include": ["cypress/**/*.ts", "cypress.config.ts"],
-    "exclude": ["node_modules"]
+      "include": ["cypress/**/*.ts", "cypress.config.ts"],
+      "exclude": ["node_modules"]
   }
   

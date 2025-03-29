@@ -93,28 +93,51 @@ abstract class HomePage extends PageBase {
     return this;
   }
 
+  checkModelName(modelName: string) {
+   return cy.get('.PJLV').should('include.text', modelName);
+  }
+
   getHelpSectionResponseWindow() {
    return cy.get('section[class^="c-cHwKMe"]');
   }
   
-  getModelDropdown() {
-    cy.get('div.c-hksCXX')
-      .find('button.c-ewUecD.PJLV') 
-      .contains('Choose model') 
-      .first()
-      .click({ force: true });
-    return this;
-  }
-  
-  
-  getModelOption(modelName: string) {
+    getModelDropdown() {
+      cy.get('button.c-ewUecD.PJLV')
+        .filter(':contains("Choose model")') 
+        .invoke('css', 'display', 'block')  
+        .click();  
 
-    cy.get('button[data-state="closed"]').click();
-    cy.get('div[role="menuitem"]').contains(modelName).click();
+        return this;
+    }
+
+    selectModel(modelName: string) {
     
-    return this;
-  }
+
+  cy.get('button[data-state="closed"].c-lgwftA')
+  .click({force:true});
+
+      cy.get('div[role="menuitem"]')
+      .contains(modelName)
+      .click({ force: true });
+
+ cy.get('form.c-iuGHFg')
+        .find('button[type="submit"]')
+        .click();
+      
+      return this;
+    }
   
+    getSuggestedTopicsContainer() {
+      return cy.contains('label', 'Suggested topics').parent();
+    }
+    
+    // This method finds a button inside the "Suggested topics" container containing the given topic text
+    getSuggestedTopicButton(topic: string) {
+      return this.getSuggestedTopicsContainer()
+        .find('button')
+        .contains(topic);  // Make sure this targets the button containing the topic text
+    }
+
 }
 
 export default HomePage;
