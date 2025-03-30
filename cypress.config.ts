@@ -12,9 +12,18 @@ export default defineConfig({
       'cypress/e2e/tests/HelpTest/**/*.feature'
     ],
     supportFile: 'cypress/support/e2e.ts',
-
+    reporter: "cypress-mochawesome-reporter",
+    reporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: false,
+      html: false,
+      json: true,
+      timestamp: false,
+      reportFilename: "mochawesome",
+    },
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
+      require('cypress-mochawesome-reporter/plugin')(on);
 
       on('file:preprocessor', createBundler({
         plugins: [createEsbuildPlugin(config)]
@@ -34,3 +43,4 @@ export default defineConfig({
     },
   },
 });
+

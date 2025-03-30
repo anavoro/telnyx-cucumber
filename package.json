@@ -3,28 +3,38 @@
   "version": "1.0.0",
   "scripts": {
     "test": "cypress run",
-    "test:ui": "cypress open"
+    "test:ui": "cypress open",
+    "report": "npx mochawesome-merge cypress/reports/*.json -o cypress/reports/report.json && npx multiple-cucumber-html-reporter --input cypress/reports/report.json --output cypress/reports/html"
   },
-  "keywords": ["cucumber", "cypress", "automation", "pom", "integration"],
+  "keywords": [
+    "cucumber",
+    "cypress",
+    "automation",
+    "pom",
+    "integration"
+  ],
   "author": "Anastasia - anavoro",
   "license": "ISC",
   "description": "Cucumber tests integrated with Cypress for Telnyx (the project for self-study)",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "cypress": "^14.2.1",
-    "typescript": "^5.2.2",
-    "ts-node": "^10.9.2",
-    "esbuild": "^0.19.5",
     "@types/cypress": "^1.1.3",
-    "@types/node": "^20.8.7"
+    "@types/node": "^20.8.7",
+    "cypress": "^14.2.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "esbuild": "^0.19.5",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "multiple-cucumber-html-reporter": "^3.9.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
   },
-    "cypress-cucumber-preprocessor": {
+  "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "stepDefinitions": [
-    "cypress/e2e/tests/HomeTest/**/*.ts",
-    "cypress/e2e/tests/NavigationTest/**/*.ts"
-  ]
-} 
+      "cypress/e2e/tests/HomeTest/**/*.ts",
+      "cypress/e2e/tests/NavigationTest/**/*.ts"
+    ]
+  }
 }
-  

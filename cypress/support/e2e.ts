@@ -1,4 +1,6 @@
 import "./commands";
+import 'cypress-mochawesome-reporter/register';
+
 
 if ((window as any).Cypress.config("hideXHRInCommandLog")) {
   const app = window.top;
