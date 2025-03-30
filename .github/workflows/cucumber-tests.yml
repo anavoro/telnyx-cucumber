@@ -16,3 +16,13 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          
+        name: 
+          cypress-reports
+        path: cypress/reports
+        if-no-files-found: ignore
+        retention-days: 2

@@ -15,16 +15,19 @@ export default defineConfig({
     reporter: "cypress-mochawesome-reporter",
     reporterOptions: {
       reportDir: "cypress/reports",
+      charts: true,
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
       overwrite: false,
-      html: false,
+      html: true,
       json: true,
-      timestamp: false,
-      reportFilename: "mochawesome",
     },
     async setupNodeEvents(on, config) {
-      await addCucumberPreprocessorPlugin(on, config);
       require('cypress-mochawesome-reporter/plugin')(on);
-
+      
+      await addCucumberPreprocessorPlugin(on, config);
+    
       on('file:preprocessor', createBundler({
         plugins: [createEsbuildPlugin(config)]
       }));
