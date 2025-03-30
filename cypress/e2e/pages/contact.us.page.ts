@@ -1,10 +1,7 @@
-import PageBase from "./PageBase";
+import PageBase from "./pase.bage";
 
 export class ContactUsPage extends PageBase {
-  constructor() {
-    super();
-  }
-
+ 
   getContactFormTitle() {
     return cy.get("main section h1");
   }

@@ -1,9 +1,6 @@
-import PageBase from "./PageBase"
+import PageBase from "./pase.bage"
 
 export class SignUpPage extends PageBase {
-  constructor() {
-    super();
-  }
 
   getSignUpFormTitle() {
     return cy.get("main section h1");

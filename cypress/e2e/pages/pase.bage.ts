@@ -1,4 +1,5 @@
   class PageBase {
+    
   visit(path: string = "") {
     cy.visit(path);
     return this;

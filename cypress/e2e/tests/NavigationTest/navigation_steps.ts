@@ -1,6 +1,6 @@
 import { Given, When, Then, } from '@badeball/cypress-cucumber-preprocessor';
 import HomePageDesktop from "../../pages/home.page.desktop"; 
-import HomePageMobile from '../../pages/HomePageMobile';
+import HomePageMobile from '../../pages/home.page.mobile';
 import HomePage from '../../pages/home.page';
 
 interface NavItem {

@@ -1,9 +1,6 @@
-import PageBase from "./PageBase";
+import PageBase from "./pase.bage";
 
 abstract class HomePage extends PageBase {
-  constructor() {
-    super();
-  }
 
   visitHomePage(options?: Partial<Cypress.VisitOptions>) {
     cy.visit("/", options);
@@ -131,11 +128,10 @@ abstract class HomePage extends PageBase {
       return cy.contains('label', 'Suggested topics').parent();
     }
     
-    // This method finds a button inside the "Suggested topics" container containing the given topic text
     getSuggestedTopicButton(topic: string) {
       return this.getSuggestedTopicsContainer()
         .find('button')
-        .contains(topic);  // Make sure this targets the button containing the topic text
+        .contains(topic);  
     }
 
 }
