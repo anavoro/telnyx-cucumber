@@ -17,9 +17,13 @@ This repository contains automated test scripts using Cypress and Cucumber to ve
 
 ## Installation
 
-To set up the test environment, install project's dependencies using the following command:
+To set up the test environment, clone this repository and install the necessary dependencies:
 
 ```shell
+
+git clone <https://github.com/anavoro/telnyx-cucumber.git>
+cd telnyx-cucumber
+
 npm install
 
 # Install Cypress as a dev dependency
