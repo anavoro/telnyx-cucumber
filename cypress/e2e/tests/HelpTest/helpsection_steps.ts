@@ -89,10 +89,9 @@ Then('the chatbot should provide a response', () => {
   });
   
   When('I view the following suggested topics:', function (dataTable: DataTable) {
-    // Store the topics to be used in the Then step
+  
     this.topics = dataTable.hashes();
     
-    // Go through the rows in the DataTable and check each suggested topic
     this.topics.forEach((row: { 'Suggested Topics': string }) => {
       cy.contains('button', row['Suggested Topics']).should('be.visible');
     });
