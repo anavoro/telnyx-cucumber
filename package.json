@@ -8,7 +8,7 @@
   "keywords": ["cucumber", "cypress", "automation", "pom", "integration"],
   "author": "Anastasia - anavoro",
   "license": "ISC",
-  "description": "",
+  "description": "Cucumber tests integrated with Cypress for Telnyx (the project for self-study)",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",

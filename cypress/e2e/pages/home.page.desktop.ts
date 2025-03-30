@@ -1,9 +1,6 @@
 import HomePage from "./home.page";
 
 class HomePageDesktop extends HomePage {
-  constructor() {
-    super();
-  }
 
   openNavigation() {}
   closeNavigation() {}

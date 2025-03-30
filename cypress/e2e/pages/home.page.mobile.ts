@@ -1,10 +1,7 @@
 import HomePage from "./home.page";
 
 class HomePageMobile extends HomePage {
-  constructor() {
-    super();
-  }
-
+ 
   openNavigation() {
     cy.contains("Open main menu").click();
   }
