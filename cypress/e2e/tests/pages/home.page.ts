@@ -1,6 +1,6 @@
-import PageBase from "./pase.bage";
+import BasePage from "./base.page";
 
-abstract class HomePage extends PageBase {
+abstract class HomePage extends BasePage {
 
   visitHomePage(options?: Partial<Cypress.VisitOptions>) {
     cy.visit("/", options);

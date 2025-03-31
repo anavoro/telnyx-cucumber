@@ -1,4 +1,4 @@
-import PageBase from "./pase.bage";
+import PageBase from "./base.page";
 
 export class ContactUsPage extends PageBase {
  

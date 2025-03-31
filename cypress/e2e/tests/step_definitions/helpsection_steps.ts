@@ -1,5 +1,5 @@
 import { Given, When, Then, DataTable} from '@badeball/cypress-cucumber-preprocessor';
-import HomePageDesktop from "../../pages/home.page.desktop"; 
+import HomePageDesktop from "../pages/homeDesktop.page"; 
 
 const homePageDesktop = new HomePageDesktop(); 
 

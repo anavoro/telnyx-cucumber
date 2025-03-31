@@ -6,11 +6,7 @@ import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild
 export default defineConfig({
   e2e: {
     baseUrl: 'https://telnyx.com',
-    specPattern: [
-      'cypress/e2e/tests/HomeTest/**/*.feature',
-      'cypress/e2e/tests/NavigationTest/**/*.feature',
-      'cypress/e2e/tests/HelpTest/**/*.feature'
-    ],
+    specPattern: 'cypress/e2e/tests//**/*.feature',
     supportFile: 'cypress/support/e2e.ts',
     reporter: "cypress-mochawesome-reporter",
     reporterOptions: {
@@ -35,11 +31,8 @@ export default defineConfig({
       config.env = {
         ...config.env,
         nonGlobalStepDefinitions: false,
-        stepDefinitions: [
-          'cypress/e2e/tests/HomeTest/**/*.ts',
-          'cypress/e2e/tests/NavigationTest/**/*.ts',
-          'cypress/e2e/tests/HelpTest/**/*.ts'
-        ]
+        stepDefinitions: 
+          'cypress/e2e/tests/**/*.ts',
       };
 
       return config;
