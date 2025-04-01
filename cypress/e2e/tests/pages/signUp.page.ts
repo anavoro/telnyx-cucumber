@@ -6,3 +6,4 @@ export class SignUpPage extends PageBase {
     return cy.get("main section h1");
   }
 }
+export const signUpPage = new SignUpPage();

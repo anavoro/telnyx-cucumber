@@ -1,4 +1,4 @@
-import { Given, When, Then, DataTable} from '@badeball/cypress-cucumber-preprocessor';
+import { When, Then, DataTable} from '@badeball/cypress-cucumber-preprocessor';
 import { homePageDesktop } from "../pages/homeDesktop.page"; 
 
 Then('the chatbot title should be {string}', (expectedTitle: string) => {

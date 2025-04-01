@@ -1,11 +1,7 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import { homePageDesktop } from "../pages/homeDesktop.page"; 
-import { ContactUsPage } from "../pages/contactUs.page";
-import { SignUpPage } from "../pages/signUp.page";
-
-const contactUsPage = new ContactUsPage();
-const signUpPage = new SignUpPage();
-
+import { contactUsPage } from "../pages/contactUs.page";
+import { signUpPage } from "../pages/signUp.page";
 
 Then('the page title should be correct', () => {
   homePageDesktop
