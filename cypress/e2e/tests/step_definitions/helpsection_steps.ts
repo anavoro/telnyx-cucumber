@@ -1,5 +1,6 @@
 import { When, Then, DataTable} from '@badeball/cypress-cucumber-preprocessor';
 import { homePageDesktop } from "../pages/homeDesktop.page"; 
+import { availableModels} from "../common/common_files"
 
 Then('the chatbot title should be {string}', (expectedTitle: string) => {
     homePageDesktop.getHelpSectionTitle().should('have.text', expectedTitle);
@@ -50,19 +51,13 @@ Then('the chatbot should provide a response', () => {
     homePageDesktop.getModelDropdown();
   });
   
-  When('I am choosing a model', function () { 
-    const models = [
-      'anthropic/claude-3-7-sonnet-latest', 
-      'fixie-ai/ultravox-v0_4', 
-      'google/gemma-2b-it', 
-      'meta-llama/Llama-2-13b-chat-hf'
-    ]; 
-    const randomModel = models[Math.floor(Math.random() * models.length)]; 
-    
+  When('I am choosing a model', function () {
+    const randomModel: string = availableModels[Math.floor(Math.random() * availableModels.length)];
+  
     homePageDesktop.selectModel(randomModel);
-    
-    cy.wrap(randomModel).as('selectedModel'); 
-  });  
+  
+    cy.wrap(randomModel).as('selectedModel');
+  });
   
   When('I type a message in the help section', () => {
     homePageDesktop.getHelpSectionTextbox()
