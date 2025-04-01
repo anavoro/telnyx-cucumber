@@ -4,39 +4,32 @@ import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-prepro
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild';
 
 export default defineConfig({
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    charts: true,
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    jsonDir: "cypress/reports/.jsons", 
+    reportFilename: "report",
+    overwrite: true
+  },
   e2e: {
     baseUrl: 'https://telnyx.com',
     specPattern: 'cypress/e2e/tests//**/*.feature',
     supportFile: 'cypress/support/e2e.ts',
-    reporter: "cypress-mochawesome-reporter",
-    reporterOptions: {
-      reportDir: "cypress/reports",
-      charts: true,
-      embeddedScreenshots: true,
-      inlineAssets: true,
-      saveAllAttempts: false,
-      overwrite: false,
-      html: true,
-      json: true,
-    },
     async setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
-      
       await addCucumberPreprocessorPlugin(on, config);
-    
       on('file:preprocessor', createBundler({
         plugins: [createEsbuildPlugin(config)]
       }));
-
       config.env = {
         ...config.env,
-        nonGlobalStepDefinitions: false,
-        stepDefinitions: 
-          'cypress/e2e/tests/**/*.ts',
+        nonGlobalStepDefinitions: true,
+        stepDefinitions: 'cypress/e2e/tests/**/*.ts',
       };
-
       return config;
     },
   },
 });
-

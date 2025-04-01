@@ -1,13 +1,13 @@
 {
   "name": "cucumber",
   "version": "1.0.0",
-  "scripts": {
+"scripts": {
   "test": "cypress run",
   "test:ui": "cypress open",
-  "merge-reports": "mochawesome-merge cypress/reports/.jsons/*.json > cypress/reports/mochawesome.json",
-  "report": "marge cypress/reports/mochawesome.json -f report -o cypress/reports",
-  "test:with-report": "npm run test && npm run report:merge && npm run report"
- },
+  "merge-reports": "npx mochawesome-merge cypress/reports/.jsons/*.json > cypress/reports/mochawesome.json",
+  "report": "npx marge cypress/reports/mochawesome.json -f report -o cypress/reports",
+  "test:with-report": "npm run test && npm run merge-reports && npm run report"
+},
   "keywords": [
     "cucumber",
     "cypress",
@@ -35,13 +35,9 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "stepDefinitions": [
-      "cypress/e2e/tests/HomeTest/**/*.ts",
-      "cypress/e2e/tests/NavigationTest/**/*.ts"
-    ]
+    "stepDefinitions": "cypress/e2e/tests/**/*.ts"
   },
   "files.associations": {
     "*.feature": "feature"
   }
-  
 }
