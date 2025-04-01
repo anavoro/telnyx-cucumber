@@ -14,5 +14,5 @@ class HomePageDesktop extends HomePage {
   }
 }
 
-export default HomePageDesktop; 
+export const homePageDesktop = new HomePageDesktop();
  

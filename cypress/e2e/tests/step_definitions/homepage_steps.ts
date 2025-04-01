@@ -1,15 +1,11 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import HomePageDesktop from "../pages/homeDesktop.page"; 
+import { homePageDesktop } from "../pages/homeDesktop.page"; 
 import { ContactUsPage } from "../pages/contactUs.page";
 import { SignUpPage } from "../pages/signUp.page";
 
-const homePageDesktop = new HomePageDesktop();
 const contactUsPage = new ContactUsPage();
 const signUpPage = new SignUpPage();
 
-Given('I am on the Telnyx homepage with performance checks', () => {
-  homePageDesktop.visitHomePage({ timeout: 5 * 1000 });
-});
 
 Then('the page title should be correct', () => {
   homePageDesktop

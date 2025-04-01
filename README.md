@@ -8,11 +8,11 @@ This repository contains automated test scripts using Cypress and Cucumber to ve
 
 ## Technologies
 
-- [Cypress] - Modern E2E testing framework
-- [Cucumber] - BDD testing framework
-- [Node.js] - JavaScript runtime environment
-- [npm] - Package manager for Node.js
-- [TypeScript] - Typed JavaScript language
+- [Cypress](https://www.cypress.io/) - Modern E2E testing framework
+- [Cucumber](https://cucumber.io/) - BDD testing framework
+- [Node.js](https://nodejs.org/) - JavaScript runtime environment
+- [npm](https://www.npmjs.com/) - Package manager for Node.js
+- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript language
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To set up the test environment, clone this repository and install the necessary 
 
 ```shell
 
-git clone <https://github.com/anavoro/telnyx-cucumber.git>
+git clone https://github.com/anavoro/telnyx-cucumber.git
 cd telnyx-cucumber
 
 npm install
@@ -57,15 +57,16 @@ npm run test:ui
 
 The automated tests are organized within the `cypress/e2e/` directory:
 
-- **`pages/`**: Contains code representing different pages of the Telnyx website (using the Page Object Model).
-- **`tests/`**: Holds the actual test files, grouped by website area:
-  - **`HomeTest/`**: Tests related to the Telnyx homepage. Contains:
-    - `.feature` files (describe test scenarios in plain language).
-    - `.ts` files (contain the code that makes the tests run).
-  - **`NavigationTest/`**: Tests for website navigation. Contains `.feature` and `.ts` files.
-  - **`HelpTest/`**: Tests for the help section. Contains `.feature` and `.ts` files.
+- **`common/`**: Contains shared step definition files (`common_steps.ts`) used across multiple features.
+- **`features/`**: Holds the Cucumber feature files (`.feature`) that describe the test scenarios in plain language.
+- **`pages/`**: Contains the Page Object Model (POM) classes. Each class represents a specific page of the Telnyx website and provides methods for interacting with its elements.
+- **`step_definitions/`**: Contains the TypeScript files (`.ts`) with the step definitions that implement the steps described in the feature files. These files link the Gherkin syntax in your features to the Cypress commands and Page Object interactions.
 
 Supporting files and configurations are located in the `cypress/support/` directory, and test reports are generated in the `cypress/reports/` directory.
+
+## Continuous Integration (CI)
+
+This project utilizes **GitHub Actions** for continuous integration. The CI workflow is configured to automatically run the automated tests on every push to the repository and pull request. Additionally, it is configured for **workflow dispatch**, allowing manual triggering of the workflow from the GitHub Actions UI.
 
 ### Test Reports (Local)
 

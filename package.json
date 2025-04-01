@@ -39,5 +39,9 @@
       "cypress/e2e/tests/HomeTest/**/*.ts",
       "cypress/e2e/tests/NavigationTest/**/*.ts"
     ]
+  },
+  "files.associations": {
+    "*.feature": "feature"
   }
+  
 }

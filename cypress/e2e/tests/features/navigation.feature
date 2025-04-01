@@ -4,12 +4,12 @@ Feature: Website Navigation
     Given I am on the homepage in "<viewType>" view
     When I open the navigation menu
     Then the primary navigation should contain the following items:
-      | Products      |
-      | Solutions     |
-      | Pricing       |
-      | Why Telnyx    |
-      | Resources     |
-      | Developers    |
+      | Products   |
+      | Solutions  |
+      | Pricing    |
+      | Why Telnyx |
+      | Resources  |
+      | Developers |
 
     Examples:
       | viewType |
@@ -20,11 +20,11 @@ Feature: Website Navigation
     Given I am on the homepage in "<viewType>" view
     When I open the navigation menu
     Then the secondary navigation should contain:
-      | text         | link                      |
-      | SETI         | https://seti.telnyx.com   |
-      | Shop         | https://shop.telnyx.com   |
-      | Contact us   | /contact-us               |
-      | Log in       | https://portal.telnyx.com |
+      | text       | link                      |
+      | SETI       | https://seti.telnyx.com   |
+      | Shop       | https://shop.telnyx.com   |
+      | Contact us | /contact-us               |
+      | Log in     | https://portal.telnyx.com |
 
     Examples:
       | viewType |

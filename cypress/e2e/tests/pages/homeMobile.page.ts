@@ -18,4 +18,4 @@ class HomePageMobile extends HomePage {
     return cy.get("#main-menu > a").contains(text);
   }
 }
-export default HomePageMobile;
+export const homePageMobile = new HomePageMobile();
