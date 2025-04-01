@@ -51,6 +51,8 @@ Local Execution
 npm run test
 #Open Cypress in interactive mode:
 npm run test:ui
+#Run the test wuth reports
+npm run test && npm run merge-reports && npm run report
 ```
 
 ## Project Structure
