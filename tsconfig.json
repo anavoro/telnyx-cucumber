@@ -19,7 +19,7 @@
       "noEmit": true,
       "experimentalDecorators": true
     },
-      "include": ["cypress/**/*.ts", "cypress.config.ts"],
+      "include": ["cypress/**/*.ts", "cypress.config.ts", "pages/base.page.ts", "pages/contactUs.page.ts", "pages/homeDesktop.page.ts", "pages/homeMobile.page.ts", "pages/signUp.page.ts"],
       "exclude": ["node_modules"]
   }
   

@@ -1,6 +1,6 @@
 import { When, Then, DataTable} from '@badeball/cypress-cucumber-preprocessor';
-import { homePageDesktop } from "../pages/homeDesktop.page"; 
-import { availableModels} from "../common/common_files"
+import { homePageDesktop } from "../../../../pages/homeDesktop.page"; 
+import { availableModels } from '../common/common_files';
 
 Then('the chatbot title should be {string}', (expectedTitle: string) => {
     homePageDesktop.getHelpSectionTitle().should('have.text', expectedTitle);
